@@ -21,6 +21,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
+Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+
 Route::middleware(['auth', 'user-access:pelajar'])->group(function () {
   
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -36,5 +40,3 @@ Route::middleware(['auth', 'user-access:guru'])->group(function () {
     Route::get('/guru/home', [App\Http\Controllers\HomeController::class, 'guru'])->name('guru.home');
 });
 
-//Pelajar//
-Route::get('/pelajar', [App\Http\Controllers\pelajarController::class, 'index'])->name('DataPelajar');

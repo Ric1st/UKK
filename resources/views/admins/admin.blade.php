@@ -55,6 +55,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{route('logout')}}" class="btn btn-danger">Logout</a>
+      </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -142,7 +145,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('DataPelajar')}}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Siswa</p>
                 </a>

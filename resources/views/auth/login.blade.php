@@ -1,4 +1,4 @@
-@extends('layouts.app')
+ {{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,4 +70,55 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection  --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{asset('masuk/main.css')}}">
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="img">
+            <img src="{{asset('masuk/bg.jpeg')}}" alt="">
+            <div class="layer"></div>
+        </div>
+        <div class="login">
+            <form action="" method="POST">
+                @csrf
+                <h1>Login</h1>
+                <div class="form">
+                    <div class="username mb-2">
+                        <input type="text" name="username" id="username" placeholder="Username">
+                    </div>
+                    <div class="pass mb-3">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                    </div>
+                </div>
+
+
+                <div class="row mb-0">
+                    <div class="col-md-12 ">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('Login') }}
+                        </button>
+                        <br>
+                        @if (Route::has('password.request'))
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{ __('Forgot Your Password?') }}
+                            </a>
+                        @endif
+                        <br>
+                        <a href="{{route('register')}}">Belum Punya Akun?</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

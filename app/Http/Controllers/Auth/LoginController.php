@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -39,16 +40,27 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function index(){
+        return view('auth.login');
+    }
+
     public function login(Request $request)
     {   
         $input = $request->all();
       
         $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required',
+            'username' => 'required|string',
+            'password' => 'required|min:6',
         ]);
+
+        $loginType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+        $login = [
+            $loginType => $request->username,
+            'password' => $request->password    
+        ];
       
-        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        if(auth()->attempt(array('username' => $input['username'], 'password' => $input['password'])))
         {
             if (auth()->user()->type == 'admin') {
                 return redirect()->route('admin.home');
@@ -59,8 +71,13 @@ class LoginController extends Controller
             }
         }else{
             return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
+                ->with('error','Username-Address And Password Are Wrong.');
         }
            
+    }
+
+    public function logout(){
+        Auth::logout();
+        return view('welcome');
     }
 }

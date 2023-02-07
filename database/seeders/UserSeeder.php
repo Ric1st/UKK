@@ -17,25 +17,11 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'nip'=>'001',
-                'name'=>'Admin',
+                'username'=>'Admin',
                 'email'=>'admin@admin.com',
                 'password'=>bcrypt('123123'),
+                'nama'=>'admin',
                 'type'=>1,
-            ],
-            [
-                'nip'=>'002',
-                'name'=>'Pelajar',
-                'email'=>'pelajar@pelajar.com',
-                'password'=>bcrypt('123123'),
-                'type'=>0,
-            ],
-            [
-                'nip'=>'003',
-                'name'=>'Guru',
-                'email'=>'guru@guru.com',
-                'password'=>bcrypt('123123'),
-                'type'=>2,
             ],
         ];
 
