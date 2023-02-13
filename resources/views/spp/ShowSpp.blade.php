@@ -25,28 +25,25 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-header">
-                        <h1>Data {{$data->nama}}</h1>
+                        <h1>Detail Pembayaran {{$data->nama}}</h1>
                     </div>
                     <div class="card-body">
                         <form method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label class="font-weight-bold">NIS : {{$data->nis}}</label>
-                                
                             </div>
                             <div class="form-group">
                                 <label class="font-weight-bold">Nama : {{$data->nama}}</label>
                             </div>
                             <div class="form-group">
-                                <label class="font-weight-bold">Kelas : {{$data->kelas}}</label>
+                                <label class="font-weight-bold">Nominal : Rp {{$data->nominal}}</label>
                             </div>
                             <div class="form-group">
-                                <label class="font-weight-bold">Alamat : {{$data->alamat}}</label>
+                                <label class="font-weight-bold">Waktu : {{$data->created_at}}</label>
                             </div>
-                            <div class="form-group">
-                                <label class="font-weight-bold">Telp  : {{$data->telp}}</label>
-                            </div>
-                            <a href="{{route('siswa.index')}}" class="btn btn-danger">Kembali</a>
+
+                            <a href="{{route('spp.index')}}" class="btn btn-danger">Kembali</a>
 
                         </form> 
                     </div>

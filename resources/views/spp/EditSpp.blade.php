@@ -25,14 +25,14 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-header">
-                        <h1>Edit Data {{$data->nama}}</h1>
+                        <h1>Edit Data SPP {{$data->nama}}</h1>
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('siswa/' . $data->nis) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('spp/' . $data->nis) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <div class="input-group mb-3">
-                                <label class="font-weight-bold mr-3">NIS : </label> {{$data->nis}}
+                            <div class="form-group">
+                                <label class="font-weight-bold">NIS : </label> {{$data->nis}}
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
@@ -49,36 +49,21 @@
                                 @enderror
                             </div>
                             <div class="input-group mb-3">
-                                <label class="font-weight-bold mr-3">Kelas : </label>
-                                <input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{$data->kelas}}" placeholder="Masukkan Kelas Anda">
+                                <label class="font-weight-bold">Nominal : </label>
+                                <span class="input-group-text ml-3">Rp</span>
+                                <input type="text" class="form-control @error('nominal') is-invalid @enderror" name="nominal" value="{{$data->nominal}}" placeholder="Masukkan Nominal Pembayaran Anda">
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-                            <div class="input-group mb-3">
-                                <label class="font-weight-bold mr-3">Alamat : </label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{$data->alamat}}" placeholder="Masukkan Alamat Anda">
-                                @error('content')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                            <div class="form-group">
+                                <label class="font-weight-bold">Waktu : {{$data->created_at}}</label>
                             </div>
-                            <div class="input-group mb-3">
-                                <label class="font-weight-bold mr-3">Telp : </label>
-                                <input type="text" class="form-control @error('telp') is-invalid @enderror" name="telp" value="{{$data->telp}}" placeholder="Masukkan Nomor Telepon Anda">
-                                @error('content')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-
 
                             <button type="submit" class="btn btn-md btn-primary" name="submit">SIMPAN</button>
-                            <a href="{{route('siswa.index')}}" class="btn btn-danger">Kembali</a>
+                            <a href="{{route('spp.index')}}" class="btn btn-danger">Kembali</a>
 
                         </form> 
                     </div>

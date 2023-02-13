@@ -57,7 +57,7 @@ class SiswaController extends Controller
             'nama.required' => 'Nama Wajib Di Isi.',
             'nama.max' => 'Nama Maksimal 25 Huruf.',
             'kelas.required' => 'Kelas Wajib Di Isi.',
-            'alamat.numeric' => 'Alamat wajib Di Isi.',
+            'alamat.required' => 'Alamat wajib Di Isi.',
             'telp.required' => 'telp Wajib Di Isi.',
             'Telp.numeric' => 'Telp Wajib Angka.',
         ]);
@@ -126,7 +126,7 @@ class SiswaController extends Controller
             'nama.required' => 'Nama Wajib Di Isi.',
             'nama.max' => 'Nama Maksimal 25 Huruf.',
             'kelas.required' => 'Kelas Wajib Di Isi.',
-            'alamat.numeric' => 'Alamat wajib Di Isi.',
+            'alamat.required' => 'Alamat wajib Di Isi.',
             'telp.required' => 'telp Wajib Di Isi.',
             'Telp.numeric' => 'Telp Wajib Angka.',
         ]);
@@ -146,7 +146,7 @@ class SiswaController extends Controller
         siswa::where('nis', $id)->update($data);
         User::where('username', $id)->update($user);
 
-        return redirect()->route('siswa.index')->with(['success' => 'Berhasil Upadate Delete!']);
+        return redirect()->route('siswa.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**
@@ -159,6 +159,6 @@ class SiswaController extends Controller
     {
         siswa::where('nis', $id)->delete();
         user::where('username', $id)->delete();
-        return redirect()->route('siswa.index')->with(['success' => 'Berhasil Delete Data']);
+        return redirect()->route('siswa.index')->with(['success' => 'Data Berhasil DiHapus']);
     }
 }

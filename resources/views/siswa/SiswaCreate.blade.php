@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tambah Data Post - SantriKoding.com</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body style="background: lightgray">
@@ -25,11 +24,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
+                    <div class="card-header">
+                        <h1>Form Create Siswa</h1>
+                    </div>
                     <div class="card-body">
                         <form action="{{ route('siswa.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <label class="font-weight-bold">NIS</label>
+                            <div class="input-group mb-3">
+                                <label class="font-weight-bold mr-3">NIS : </label>
                                 <input type="text" class="form-control @error('nis') is-invalid @enderror" name="nis" value="{{Session::get('nis')}}" placeholder="Masukkan NIS Anda">
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
@@ -37,8 +39,8 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label class="font-weight-bold">Nama</label>
+                            <div class="input-group mb-3">
+                                <label class="font-weight-bold mr-3">Nama : </label>
                                 <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{Session::get('nama')}}" placeholder="Masukkan Nama Lengkap Anda">
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
@@ -46,8 +48,8 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label class="font-weight-bold">Kelas</label>
+                            <div class="input-group mb-3">
+                                <label class="font-weight-bold mr-3">Kelas : </label>
                                 <input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{Session::get('kelas')}}" placeholder="Masukkan Kelas Anda">
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
@@ -55,8 +57,8 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label class="font-weight-bold">Alamat</label>
+                            <div class="input-group mb-3">
+                                <label class="font-weight-bold mr-3">Alamat : </label>
                                 <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{Session::get('alamat')}}" placeholder="Masukkan Alamat Anda">
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
@@ -64,8 +66,8 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label class="font-weight-bold">Telp</label>
+                            <div class="input-group mb-3">
+                                <label class="font-weight-bold mr-3">Telp :     </label>
                                 <input type="text" class="form-control @error('telp') is-invalid @enderror" name="telp" value="{{Session::get('telp')}}" placeholder="Masukkan Nomor Telepon Anda">
                                 @error('content')
                                     <div class="alert alert-danger mt-2">

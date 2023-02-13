@@ -25,14 +25,14 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-header">
-                        <h1>Edit Data {{$data->nama}}</h1>
+                        <h1>Tambah Data SPP</h1>
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('siswa/' . $data->nis) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('spp.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
                             <div class="input-group mb-3">
-                                <label class="font-weight-bold mr-3">NIS : </label> {{$data->nis}}
+                                <label class="font-weight-bold mr-3">NIS : </label>
+                                <input type="text" class="form-control @error('nis') is-invalid @enderror" name="nis" value="{{Session::get('nis')}}" placeholder="Masukkan NIS Anda">
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
@@ -41,7 +41,7 @@
                             </div>
                             <div class="input-group mb-3">
                                 <label class="font-weight-bold mr-3">Nama : </label>
-                                <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{$data->nama}}" placeholder="Masukkan Nama Lengkap Anda">
+                                <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{Session::get('nama')}}" placeholder="Masukkan Nama Lengkap Anda">
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
@@ -49,36 +49,19 @@
                                 @enderror
                             </div>
                             <div class="input-group mb-3">
-                                <label class="font-weight-bold mr-3">Kelas : </label>
-                                <input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{$data->kelas}}" placeholder="Masukkan Kelas Anda">
+                                <label class="font-weight-bold mr-3">Nominal Pembayaran : </label>
+                                <span class="input-group-text ml-3">Rp</span>
+                                <input type="text" class="form-control @error('nominal') is-invalid @enderror" name="nominal" value="{{Session::get('nominal')}}" placeholder="Masukkan Nominal Pembayaran Anda">
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
-                            </div>
-                            <div class="input-group mb-3">
-                                <label class="font-weight-bold mr-3">Alamat : </label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{$data->alamat}}" placeholder="Masukkan Alamat Anda">
-                                @error('content')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="input-group mb-3">
-                                <label class="font-weight-bold mr-3">Telp : </label>
-                                <input type="text" class="form-control @error('telp') is-invalid @enderror" name="telp" value="{{$data->telp}}" placeholder="Masukkan Nomor Telepon Anda">
-                                @error('content')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
+                                </div>
 
 
-                            <button type="submit" class="btn btn-md btn-primary" name="submit">SIMPAN</button>
-                            <a href="{{route('siswa.index')}}" class="btn btn-danger">Kembali</a>
+                            <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
+                            <a href="{{route('spp.index')}}" class="btn btn-danger">Kembali</a>
 
                         </form> 
                     </div>
