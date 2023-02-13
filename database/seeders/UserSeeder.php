@@ -18,11 +18,16 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'username'=>'Admin',
-                'email'=>'admin@admin.com',
                 'password'=>bcrypt('123123'),
                 'nama'=>'admin',
                 'type'=>1,
             ],
+            [
+                'username'=>'123123',
+                'password'=>bcrypt('123123'),
+                'nama'=>'Adi',
+                'type'=>2,
+            ]
         ];
 
         foreach ($users as $key =>$user){

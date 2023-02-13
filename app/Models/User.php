@@ -41,7 +41,7 @@ class User extends Authenticatable
     /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     * @var array<string, string>   
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     protected function type(): Attribute{
         return new Attribute(
-            get: fn ($value) => ['siswa', 'admin', 'petugas'][$value],
+            get: fn ($value) => ['user', 'admin','siswa','petugas'][$value],
         );  
     }
 }

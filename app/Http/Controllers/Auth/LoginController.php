@@ -8,6 +8,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
+use function PHPSTORM_META\type;
+
 class LoginController extends Controller
 {
     /*
@@ -64,10 +66,10 @@ class LoginController extends Controller
         {
             if (auth()->user()->type == 'admin') {
                 return redirect()->route('admin.home');
-            }else if (auth()->user()->type == 'guru') {
-                return redirect()->route('guru.home');
-            }else{
-                return redirect()->route('home');
+            }else if (auth()->user()->type == 'petugas') {
+                return redirect()->route('petugas.home');
+            }elseif (auth()->user()->type == 'siswa'){
+                return redirect()->route('siswa.home');
             }
         }else{
             return redirect()->route('login')

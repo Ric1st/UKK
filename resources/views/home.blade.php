@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('You are Siswa!') }}
+                    {{ __('Welcome ') }} {{Auth::user()->nama}}
+                    
                 </div>
             </div>
         </div>

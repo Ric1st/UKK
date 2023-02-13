@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class siswa extends Model
+class spp extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'nis',
         'nama',
-        'kelas',
-        'alamat',
-        'telp',
-        'id_spp'
+        'nominal'
     ];
 }

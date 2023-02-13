@@ -145,7 +145,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{url('/siswa')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Siswa</p>
                 </a>
@@ -159,10 +159,18 @@
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Users</p>
+                  <p>Data Petugas</p>
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('spp/')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Data SPP
+              </p>
+            </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">

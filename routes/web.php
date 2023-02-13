@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\sppController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,9 +28,11 @@ Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'index'
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 
-Route::middleware(['auth', 'user-access:pelajar'])->group(function () {
+
+
+Route::middleware(['auth', 'user-access:siswa'])->group(function () {
   
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/siswa/home', [App\Http\Controllers\HomeController::class, 'index'])->name('siswa.home');
 });
 
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
@@ -35,8 +40,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin.home');
 });
 
-Route::middleware(['auth', 'user-access:guru'])->group(function () {
+Route::middleware(['auth', 'user-access:petugas'])->group(function () {
   
-    Route::get('/guru/home', [App\Http\Controllers\HomeController::class, 'guru'])->name('guru.home');
+    Route::get('/petugas/home', [App\Http\Controllers\HomeController::class, 'petugas'])->name('petugas.home');
 });
 
+Route::resource('/siswa', \App\Http\Controllers\SiswaController::class);
+Route::resource('/spp', \App\Http\Controllers\sppController::class);

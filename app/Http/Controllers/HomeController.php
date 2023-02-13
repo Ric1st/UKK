@@ -31,8 +31,8 @@ class HomeController extends Controller
         return view('admins.admin');
     }
 
-    public function guru(){
-        return view('guru');
+    public function petugas(){
+        return view('petugas');
     }
 
     public function login(){
