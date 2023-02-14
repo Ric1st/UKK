@@ -32,7 +32,7 @@ Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logou
 
 Route::middleware(['auth', 'user-access:siswa'])->group(function () {
   
-    Route::get('/siswa/home', [App\Http\Controllers\HomeController::class, 'index'])->name('siswa.home');
+    Route::get('/siswa/home', [App\Http\Controllers\BayarController::class, 'index'])->name('siswa.home');
 });
 
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
@@ -47,3 +47,4 @@ Route::middleware(['auth', 'user-access:petugas'])->group(function () {
 
 Route::resource('/siswa', \App\Http\Controllers\SiswaController::class);
 Route::resource('/spp', \App\Http\Controllers\sppController::class);
+Route::resource('/bayar', \App\Http\Controllers\BayarController::class);
