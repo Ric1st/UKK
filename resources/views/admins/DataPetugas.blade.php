@@ -14,31 +14,29 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-header">
-                        <h1>Form Pembayaran SPP</h1>
+                        <h1>Form Data Petugas</h1>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('spp.create') }}" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
+                        <a href="{{ route('petugas.create') }}" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">NIS</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Username</th>
                                 <th scope="col">Nama</th>
-                                <th scope="col">Nominal</th>
-                                <th scope="col">Waktu</th>
                                 <th scope="col">Aksi</th>
                               </tr>
                             </thead>
                             <tbody>
-                              @forelse ($spp as $item)
+                              @forelse ($petugas as $item)
                                 <tr>
-                                    <td>{{ $item->nis }}</td>
-                                    <td>{!! $item->nama !!}</td>
-                                    <td>{!! $item->nominal !!}</td>
-                                    <td>{!! $item->created_at !!}</td>
+                                    <td>{{ $item->id_petugas }}</td>
+                                    <td>{!! $item->username !!}</td>
+                                    <td>{!! $item->nama_petugas !!}</td>
                                     <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ url('spp/'. $item->nis) }}" method="POST">
-                                            <a href="{{ url('spp/'.$item->nis.'/edit') }}" class="btn btn-sm btn-primary">EDIT</a>
-                                            <a href="{{ url('spp/'. $item->nis) }}" class="btn btn-sm btn-warning">SHOW</a>
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ url('petugas/'. $item->id_petugas) }}" method="POST">
+                                            <a href="{{ url('petugas/'.$item->id_petugas.'/edit') }}" class="btn btn-sm btn-primary">EDIT</a>
+                                            <a href="{{ url('petugas/'. $item->id_petugas) }}" class="btn btn-sm btn-warning">SHOW</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
@@ -52,7 +50,7 @@
                               @endforelse
                             </tbody>
                           </table>  
-                          {{ $spp->links() }}
+                          {{ $petugas->links() }}
                     </div>
                 </div>
             </div>

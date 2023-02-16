@@ -151,15 +151,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('/petugas')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Guru</p>
+                  <p>Data Petugas</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Petugas</p>
+                  <p>Data Kelas</p>
                 </a>
               </li>
             </ul>

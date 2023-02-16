@@ -45,24 +45,32 @@ class SiswaController extends Controller
         Session::flash('alamat', $request->alamat);
         Session::flash('telp', $request->telp);
         $this->validate($request, [
-            'nis'     => 'required|numeric',
-            'nama'     => 'required|max:25',
-            'kelas'   => 'required',
+            'nisn'     => 'required|max:10',
+            'nis'     => 'required|max:8',
+            'nama'     => 'required|max:35',
+            'kelas'   => 'required|numeric|max:11',
             'alamat'   => 'required',
-            'telp'   => 'required|numeric',
+            'telp'   => 'required|numeric|max:13',
+            'id_spp' => 'required|numeric|max:11'
         ],
         [
+            'nisn.required' => 'NISN Wajib Di Isi.',
+            'nisn.max' => 'NISN Maksimal 10 Angka.',
             'nis.required' => 'NIS Wajib Di Isi.',
-            'nis.numeric' => 'NIS Wajib Angka.',
+            'nis.max' => 'NIS Maksimal 8 Angka.',
             'nama.required' => 'Nama Wajib Di Isi.',
-            'nama.max' => 'Nama Maksimal 25 Huruf.',
+            'nama.max' => 'Nama Maksimal 35 Huruf.',
             'kelas.required' => 'Kelas Wajib Di Isi.',
+            'kelas.max' => 'Kelas Maksimal 11 Angka.',
+            'kelas.numeric' => 'Kelas Wajib Angka.',
             'alamat.required' => 'Alamat wajib Di Isi.',
             'telp.required' => 'telp Wajib Di Isi.',
-            'Telp.numeric' => 'Telp Wajib Angka.',
+            'telp.numeric' => 'Telp Wajib Angka.',
+            'telp.max' => 'Telp Maksimal 13 Angka.',
         ]);
 
         $data = [
+            'nisn' => $request->nisn,
             'nis' => $request->nis,
             'nama' => $request->nama,
             'kelas' => $request->kelas,
@@ -117,18 +125,21 @@ class SiswaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nama'     => 'required|max:25',
-            'kelas'   => 'required',
+            'nama'     => 'required|max:35',
+            'kelas'   => 'required|numeric|max:11',
             'alamat'   => 'required',
-            'telp'   => 'required|numeric',
+            'telp'   => 'required|numeric|max:13',
         ],
         [
             'nama.required' => 'Nama Wajib Di Isi.',
-            'nama.max' => 'Nama Maksimal 25 Huruf.',
+            'nama.max' => 'Nama Maksimal 35 Huruf.',
             'kelas.required' => 'Kelas Wajib Di Isi.',
+            'kelas.max' => 'Kelas Maksimal 11 Angka.',
+            'kelas.numeric' => 'Kelas Wajib Angka.',
             'alamat.required' => 'Alamat wajib Di Isi.',
             'telp.required' => 'telp Wajib Di Isi.',
-            'Telp.numeric' => 'Telp Wajib Angka.',
+            'telp.numeric' => 'Telp Wajib Angka.',
+            'telp.max' => 'Telp Maksimal 13 Angka.',
         ]);
 
         $data = [

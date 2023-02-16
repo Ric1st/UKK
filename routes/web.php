@@ -48,3 +48,4 @@ Route::middleware(['auth', 'user-access:petugas'])->group(function () {
 Route::resource('/siswa', \App\Http\Controllers\SiswaController::class);
 Route::resource('/spp', \App\Http\Controllers\sppController::class);
 Route::resource('/bayar', \App\Http\Controllers\BayarController::class);
+Route::resource('/petugas', \App\Http\Controllers\PetugasController::class);
